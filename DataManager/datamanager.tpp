@@ -23,7 +23,7 @@ public:
      * @param data - map of data to write
      * @param id   - filename label
      */
-    template <typename T> void write(std::map<int, T> data, std::string id) {
+    template <typename T> void DataManager<T>::write(std::map<int, T> data, std::string id) {
 
         std::string filename = "./data/" + id + ".dat/";
         std::fstream fs(filename);
@@ -35,8 +35,7 @@ public:
             for(T value : entry) {
                 line << entry;
             }
-            line << '\n'
-            line >> fs;
+            line << '\n' line >> fs;
         }
         fs.close();
     }
@@ -48,5 +47,5 @@ public:
      * @param id   - filename label
      * @return std::map<int, T> data from file
      */
-    template <typename T> virtual std::map<int, T> read(std::string id);
+    template <typename T> virtual std::map<int, T> DataManager<T>::read(std::string id);
 };
